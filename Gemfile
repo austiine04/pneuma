@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
+gem 'bootstrap-sass', '~>3.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
@@ -8,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'pg'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
   gem 'sqlite3'
