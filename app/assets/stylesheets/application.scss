@@ -13,3 +13,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$pneuma-purple: #b67bff;
+$pnuema-font: #aaa;
+body {
+    background-color: black;
+    color: $pnuema-font;
+}
