@@ -25,9 +25,8 @@ $font-color: #ffffff;
 
     ul{
         list-style-type: none;
-        div {
+        .item-container {
             padding: 15px;
-            text-align: center;
             border-bottom: 1px solid $font-color;
         }
     }
