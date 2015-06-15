@@ -11,16 +11,16 @@
  * file per style scope.
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "login";
-
-$pneuma-purple: #b67bff;
-$pnuema-font: #aaa;
+@import "variables";
+@import "dashboard";
 
 body {
-    background-color: black;
-    color: $pnuema-font;
+    background-color: $background;
+    color: $pnuema-font-grey-background;
 }
 
-//purple color #b67bff;

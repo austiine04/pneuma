@@ -1,0 +1,8 @@
+$pneuma-purple: #b67bff;
+$pnuema-font-black-background: #aaa;
+$pnuema-font-grey-background: #404040;
+$background: #f0f2f5;
+
+@mixin background-color ($color) {
+    background: $color;
+}

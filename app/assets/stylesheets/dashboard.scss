@@ -1,3 +1,34 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+$font-color: #ffffff;
+
+.user {
+    float: right;
+}
+
+.top-bar {
+    @include background-color($pneuma-purple);
+    padding: 10px;
+    color: $font-color;
+
+    a {
+        text-decoration: none;
+        color: $font-color; 
+    }
+}
+
+.left-pane {
+    @include background-color($pneuma-purple);
+    float: left;
+    color: $font-color;
+    height: 100%;
+
+    ul{
+        list-style-type: none;
+        div {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid $font-color;
+        }
+    }
+}

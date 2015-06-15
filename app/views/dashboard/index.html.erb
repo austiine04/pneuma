@@ -1,3 +1,22 @@
-<%= link_to 'Logout', destroy_user_session_path %>
+<div class='row top-bar'>
+  <div class='col-md-2 user'>
+    <%= current_user.email %> &nbsp; &nbsp;  <%= link_to 'Logout', destroy_user_session_path %>
+  </div>
+</div>
 
-<p> Hello <%= current_user.email %>, <p>
+<div class='row'>
+  <div class='col-md-3 left-pane'>
+    <ul class='items'>
+      <li class='item'>
+        <div>
+          <%= icon('flag') %> Devotionals
+        </div>
+        <div>
+          Sermons
+        </div>
+      </li>
+    <ul>
+  </div>
+
+  <div class='content'></div>
+</div>
