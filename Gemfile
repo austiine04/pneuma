@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 gem 'rails', '4.2.1'
-gem 'bootstrap-sass', '~>3.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
@@ -12,7 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'pg'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
-gem 'font-awesome-sass', '~> 4.3.0'
+gem 'bower-rails'
 
 group :development, :test do
   gem 'sqlite3'

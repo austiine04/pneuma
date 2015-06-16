@@ -9,7 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require turbolinks
+//= require angular/angular
 //= require_tree .
-//= require bootstrap
+
+var pneumaApp = angular.module('pnuemaApp', []);
+
+pneumaApp.controller('MainController', function ($scope) {
+  $scope.welcome = 'Welcome to Pneuma Word Church'
+});
