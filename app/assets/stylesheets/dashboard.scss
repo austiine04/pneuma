@@ -19,14 +19,12 @@ $font-color: #ffffff;
 
 .left-pane {
     @include background-color($pneuma-purple);
-    float: left;
     color: $font-color;
-    height: 100%;
 
     ul{
         list-style-type: none;
         .item-container {
-            padding: 15px;
+            padding: 10px;
             border-bottom: 1px solid $font-color;
         }
     }
