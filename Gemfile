@@ -12,6 +12,7 @@ gem 'devise'
 gem 'pg'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bower-rails'
+gem 'angular-rails-templates'
 
 gem "foreman"
 group :production, :staging do
