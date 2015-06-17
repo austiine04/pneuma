@@ -1,13 +1,1 @@
-<div class='row top-bar'>
-  <div class='col-md-2 user'>
-    <%= current_user.email %> &nbsp; &nbsp;  <%= link_to 'Logout', destroy_user_session_path %>
-  </div>
-</div>
-
-<div class='row'>
-  <div class='col-md-2 left-pane'>
-    <%= render "left_pane"%>
-  </div>
-
-  <div class='content'></div>
-</div>
+<div class='row' ui-view></div>

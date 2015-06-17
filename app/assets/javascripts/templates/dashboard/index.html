@@ -1,0 +1,29 @@
+<div class='row top-bar'>
+    <div class='col-md-3 user'>
+        <%= current_user.email %> &nbsp; &nbsp;  <%= link_to 'Logout', destroy_user_session_path %>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-md-2 left-pane'>
+      <ul class='items'>
+         <li class='item'>
+           <div class='item-container'>
+             Devotionals
+           </div>
+         </li>
+         <li>
+           <div class='item-container'>
+             Sermons
+           </div>
+         </li>
+         <li>
+           <div class='item-container'>
+             Events
+           </div>
+         </li>
+      </ul>
+    </div>
+
+    <div class='content'></div>
+</div>

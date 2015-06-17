@@ -9,11 +9,18 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//
 //= require angular/angular
+//= require angular-ui-router/release/angular-ui-router
+//= require angular-rails-templates
 //= require_tree .
 
-var pneumaApp = angular.module('pnuemaApp', []);
+var pneumaApp = angular.module('pnuemaApp', ['ui.router', 'templates']);
 
-pneumaApp.controller('MainController', function ($scope) {
-  $scope.welcome = 'Welcome to Pneuma Word Church'
-});
+pneumaApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+
+    $stateProvider.state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'dashboard/index.html'
+    })
+}]);
