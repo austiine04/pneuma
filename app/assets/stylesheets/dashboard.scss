@@ -10,7 +10,6 @@ $font-color: #ffffff;
     @include background-color($pneuma-purple);
     padding: 10px;
     color: $font-color;
-
     a {
         text-decoration: none;
         color: $font-color; 
@@ -20,7 +19,6 @@ $font-color: #ffffff;
 .left-pane {
     @include background-color($pneuma-purple);
     color: $font-color;
-
     ul{
         list-style-type: none;
         .item-container {
@@ -28,4 +26,13 @@ $font-color: #ffffff;
             border-bottom: 1px solid #cdbfe3;
         }
     }
+    a {
+        text-decoration: none;
+        color: $font-color;
+    }
+}
+
+.content {
+  float: left;
+  margin-left: 30px;
 }
