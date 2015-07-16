@@ -13,8 +13,9 @@ gem 'pg'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'foreman'
+gem 'puma'
 
-gem "foreman"
 group :production, :staging do
    gem "rails_12factor"
    gem "rails_stdout_logging"
@@ -22,6 +23,7 @@ group :production, :staging do
 end
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'

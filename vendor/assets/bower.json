@@ -3,6 +3,7 @@
   "dependencies": {
     "angular": "latest",
     "bootstrap-sass-official": "latest",
-    "angular-ui-router": "latest"
+    "angular-ui-router": "latest",
+    "ng-s3upload": "latest"
   }
 }
