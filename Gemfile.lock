@@ -181,6 +181,7 @@ DEPENDENCIES
   bower-rails
   byebug
   devise
+  execjs
   foreman
   jbuilder (~> 2.0)
   pg
