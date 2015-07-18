@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "postinstall": "rake bower:install"
+    "postinstall": "cd vendor/assets && bower install"
   },
   "dependencies": {
     "bower": "1.4.1"
