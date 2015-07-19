@@ -24,6 +24,7 @@ group :production, :staging do
 end
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
   gem 'teaspoon-jasmine'
   gem 'phantomjs'
   gem 'pry-rails'
