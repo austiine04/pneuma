@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321131130) do
+ActiveRecord::Schema.define(version: 20150719151844) do
+
+  create_table "sermons", force: :cascade do |t|
+    t.string   "title",              null: false
+    t.string   "preacher",           null: false
+    t.text     "summary"
+    t.string   "branding_image_url"
+    t.string   "audio_file_url",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sermons", ["title"], name: "index_sermons_on_title"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
