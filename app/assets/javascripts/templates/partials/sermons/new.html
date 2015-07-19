@@ -15,21 +15,18 @@
         </div>
 
         <div class="form-group">
-            <label for="audioFile">Upload the audio file</label>
-            <input type="file" id="audioFile">
+            <label for="preacher">A brief write up(summary) of the sermon</label>
+            <textarea class="form-control" id="summary" placeholder="Write up of the sermon"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="image">Upload a branding image for the sermon</label>
-            <input type="file" id="image">
-        </div>
-
-        <div class="form-group">
-            <label>Upload on demand</label>
+            <label for="image">Select a branding image for the sermon</label>
             <div s3-upload bucket="'pneuma'" ng-model="files.first" s3-upload-options="{submitOnChange: true}" do-upload="performUpload"></div>
+        </div>
 
-            <br/>
-            <button class="btn btn-default" ng-click="performUpload=true">Upload now</button>
+        <div class="form-group">
+            <label>Select audio file</label>
+            <div s3-upload bucket="'pneuma'" ng-model="files.first" s3-upload-options="{submitOnChange: true}" do-upload="performUpload"></div>
         </div>
 
         <button type="submit" class="btn btn-block">Submit</button>
