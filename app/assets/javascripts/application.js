@@ -13,7 +13,7 @@ pneumaApp.config(['$stateProvider', '$urlRouterProvider', 'ngS3Config',
 
                       $stateProvider
                           .state('dashboard', {
-                              url: '/dashboard',
+                              url: '/',
                               templateUrl: 'layout.html'
                           })
                           .state('dashboard.sermons', {
