@@ -2,10 +2,19 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
 //= require angular-sanitize/angular-sanitize
+//= require angular-resource/angular-resource
 //= require ng-s3upload/build/ng-s3upload
 //= require_tree .
 
-var pneumaApp = angular.module('pnuemaApp', ['ui.router', 'templates', 'ngSanitize', 'ngS3upload']);
+var pneumaApp = angular.module('pneumaApp', [
+    'ui.router',
+    'ngResource',
+    'templates',
+    'ngSanitize',
+    'ngS3upload',
+    'controllers',
+    'directives'
+]);
 
 pneumaApp.config(['$stateProvider', '$urlRouterProvider', 'ngS3Config',
                   function ($stateProvider, $urlRouterProvider, ngS3Config) {
@@ -14,10 +23,11 @@ pneumaApp.config(['$stateProvider', '$urlRouterProvider', 'ngS3Config',
                       $stateProvider
                           .state('dashboard', {
                               url: '/',
-                              templateUrl: 'layout.html'
+                              templateUrl: 'layout.html',
+                              controller: 'SermonsController'
                           })
                           .state('dashboard.sermons', {
-                              url: '/sermons/new',
+                              url: 'sermons/new',
                               templateUrl: 'partials/sermons/new.html'
                           });
                   }]);

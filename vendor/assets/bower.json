@@ -4,6 +4,8 @@
     "angular": "latest",
     "bootstrap-sass-official": "latest",
     "angular-ui-router": "latest",
-    "ng-s3upload": "latest"
+    "ng-s3upload": "latest",
+    "angular-mocks": "latest",
+    "angular-resource": "latest"
   }
 }

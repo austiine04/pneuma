@@ -24,6 +24,8 @@ group :production, :staging do
 end
 
 group :development, :test do
+  gem 'teaspoon-jasmine'
+  gem 'phantomjs'
   gem 'pry-rails'
   gem 'sqlite3'
   gem 'byebug'
