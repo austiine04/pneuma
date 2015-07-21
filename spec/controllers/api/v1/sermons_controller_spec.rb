@@ -3,8 +3,10 @@ require 'rails_helper'
 describe Api::V1::SermonsController, type: :controller do
 
   describe 'create' do
+
     describe 'valid sermon' do
       before(:each) do
+        login_user
         sermon = {sermon: {title: 'title', preacher: 'preacher', branding_image_url: 'image', audio_file_url: 'file'}}
         post :create, sermon
       end
@@ -27,6 +29,7 @@ describe Api::V1::SermonsController, type: :controller do
 
     describe 'invalid sermon' do
       before(:each) do
+        login_user
         sermon = {sermon: {branding_image_url: 'image', audio_file_url: 'file'}}
         post :create, sermon
       end
