@@ -8,4 +8,8 @@ FactoryGirl.define do
     password_confirmation "password"
     confirmed_at Time.now
   end
+
+  factory :sermon do
+    initialize_with { new(attributes) }
+  end
 end
