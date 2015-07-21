@@ -5,11 +5,8 @@ module Api
 
       def create
         sermon = Sermon.new sermon_params
-        if sermon.save
-          render json: sermon, status: 201
-        else
-          render json: sermon.errors.messages,  status: 422
-        end
+        render json: sermon, status: 201 if sermon.save
+        render json: sermon.errors.messages,  status: 422 if !sermon.save
       end
 
       private
