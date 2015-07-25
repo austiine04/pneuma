@@ -11,6 +11,7 @@ describe('SermonsController', function () {
         deferred = $q.defer();
         deferred.resolve('sermon-id');
         mockSermonService.create.and.returnValue(deferred.promise);
+        spyOn($rootScope, '$broadcast');
         $controller('SermonsController', {$scope: scope, $state: mockState, SermonsService: mockSermonService});
     }));
 
@@ -37,7 +38,10 @@ describe('SermonsController', function () {
                 expect(mockState.go).toHaveBeenCalledWith('/sermons/sermon-id');
             });
 
-            it('should display success message');
+            it('should display success message', function () {
+                $rootScope.$digest();
+                expect($rootScope.$broadcast).toHaveBeenCalledWith('rootscope:broadcast', 'Sermon has been successfully saved');
+            });
         });
 
         describe('error', function () {
