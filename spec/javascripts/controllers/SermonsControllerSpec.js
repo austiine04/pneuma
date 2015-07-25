@@ -1,42 +1,14 @@
 describe('SermonsController', function () {
-    var scope, mockHttpBackend;
-
-    beforeEach (function () {
-        module('pneumaApp');
-        inject(function ($rootScope, $controller, $httpBackend) {
-            scope = $rootScope.$new();
-            mockHttpBackend = $httpBackend;
-            $controller('SermonsController', {$scope: scope});
-        });
-    });
-
-    it('should have a sermons model', function () {
-        expect(scope.sermon).toBeDefined();
-    });
-
+    it('should have a sermon model');
     describe('save', function () {
-
-        beforeEach(function () {
-            scope.sermon = {title: 'Divine Speed', preacher: 'Prophet Brian Kagyezi'};
+        it('should user sermon service to save sermons');
+        describe('success', function () {
+            it('should redirect to sermon details page on success');
+            it('should display success message');
         });
-
-        afterEach(function() {
-            mockHttpBackend.verifyNoOutstandingExpectation();
-            mockHttpBackend.verifyNoOutstandingRequest();
-        });
-
-        it('should post sermon details to api', function () {
-            mockHttpBackend.expectPOST('/sermons', scope.sermon).respond(201, '');
-            scope.save();
-            mockHttpBackend.flush();
-        });
-
-        xit('success should add a success message to scope', function () {
-            mockHttpBackend.whenPOST('/sermons', scope.sermon).respond(201, '');
-            scope.save();
-            expect(scope.success).toBeDefined();
-            expect(scope.success).toEqual('Sermon has been successfully saved');
-            mockHttpBackend.flush();
+        describe('error', function () {
+            it('should remain at the sermon form when saving fails');
+            it('should display error message');
         });
     });
 });
