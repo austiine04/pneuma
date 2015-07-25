@@ -13,7 +13,8 @@ var pneumaApp = angular.module('pneumaApp', [
     'ngSanitize',
     'ngS3upload',
     'controllers',
-    'directives'
+    'directives',
+    'services'
 ]);
 
 pneumaApp.config(['$stateProvider', '$urlRouterProvider', 'ngS3Config',
