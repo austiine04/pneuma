@@ -24,11 +24,15 @@ pneumaApp.config(['$stateProvider', '$urlRouterProvider', 'ngS3Config',
                       $stateProvider
                           .state('dashboard', {
                               url: '/',
-                              templateUrl: 'layout.html',
-                              controller: 'SermonsController'
+                              templateUrl: 'layout.html'
                           })
                           .state('dashboard.sermons', {
                               url: 'sermons/new',
-                              templateUrl: 'partials/sermons/new.html'
+                              templateUrl: 'partials/sermons/new.html',
+                              controller: 'SermonsController'
+                          })
+                          .state('dashboard.sermons.details', {
+                              url: '/sermons/:id',
+                              templateUrl: 'partials/sermons/show.html'
                           });
                   }]);

@@ -1,10 +1,10 @@
 angular.module('controllers', [])
-    .controller('SermonsController', ['$scope', '$resource', function ($scope, $resource) {
-        $scope.sermon = {};
-        var Sermon = $resource('/sermons');
+    .controller('SermonsController', ['$scope', '$state', 'SermonsService', function ($scope, $state, SermonsService) {
+        $scope.data = {};
 
         $scope.save = function () {
-            var newSermon = new Sermon($scope.sermon);
-            newSermon.$save();
+            SermonsService.create($scope.data).then(function (id) {
+                $state.go('/sermons/' + id);
+            });
         };
     }]);
