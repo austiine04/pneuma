@@ -7,6 +7,8 @@ angular.module('controllers', [])
             SermonsService.create($scope.data).then(function (id) {
                 $state.go('/sermons/' + id);
                 $rootScope.$broadcast('rootscope:broadcast', 'Sermon has been successfully saved');
+            }, function (error) {
+                $scope.error = error;
             });
         };
     }]);

@@ -1,21 +1,19 @@
 describe('SermonsController', function () {
-    var scope, $rootScope, deferred;
+    var scope, $rootScope, deferred, $controller;
     var mockSermonService = jasmine.createSpyObj('mockSermonservice', ['create']);
     var mockState = jasmine.createSpyObj('mockState', ['go']);
 
     beforeEach(module('pneumaApp'));
 
-    beforeEach(inject(function (_$rootScope_, $controller, $q) {
+    beforeEach(inject(function (_$rootScope_, _$controller_, $q) {
         scope = _$rootScope_.$new();
         $rootScope = _$rootScope_;
+        $controller = _$controller_;
         deferred = $q.defer();
-        deferred.resolve('sermon-id');
-        mockSermonService.create.and.returnValue(deferred.promise);
-        spyOn($rootScope, '$broadcast');
-        $controller('SermonsController', {$scope: scope, $state: mockState, SermonsService: mockSermonService});
     }));
 
     it('should have a sermon model', function () {
+        $controller('SermonsController', {$scope: scope});
         expect(scope.data).toBeDefined();
         expect(scope.data).toEqual({});
     });
@@ -24,14 +22,31 @@ describe('SermonsController', function () {
 
         beforeEach(function () {
             scope.data = {title: 'title', preacher: 'preacher'};
-            scope.save();
         });
 
+        afterEach(function () {
+            mockState.go.calls.reset();
+        });
+
+        function createSuccessPromise () {
+            deferred.resolve('sermon-id');
+            mockSermonService.create.and.returnValue(deferred.promise);
+        }
+
         it('should user sermon service to save sermons', function () {
+            createSuccessPromise();
+            $controller('SermonsController', {$scope: scope, SermonsService: mockSermonService});
+            scope.save();
             expect(mockSermonService.create).toHaveBeenCalledWith(scope.data);
         });
 
         describe('success', function () {
+
+            beforeEach (function () {
+                createSuccessPromise();
+                $controller('SermonsController', {$scope: scope, $state: mockState, SermonsService: mockSermonService});
+                scope.save();
+            });
 
             it('should redirect to sermon details page on success', function () {
                 $rootScope.$digest();
@@ -39,14 +54,31 @@ describe('SermonsController', function () {
             });
 
             it('should display success message', function () {
+                spyOn($rootScope, '$broadcast');
                 $rootScope.$digest();
                 expect($rootScope.$broadcast).toHaveBeenCalledWith('rootscope:broadcast', 'Sermon has been successfully saved');
             });
         });
 
         describe('error', function () {
-            it('should remain at the sermon form when saving fails');
-            it('should display error message');
+            var urlBefore = window.url;
+
+            beforeEach(function () {
+                deferred.reject('An error occured while saving the sermon');
+                mockSermonService.create.and.returnValue(deferred.promise);
+                $controller('SermonsController', {$scope: scope, $state: mockState, SermonsService: mockSermonService});
+                scope.save();
+                $rootScope.$digest();
+            });
+
+            it('should remain at the sermon form when saving fails', function () {
+                expect(mockState.go).not.toHaveBeenCalled();
+                expect(urlBefore).toEqual(window.url);
+            });
+
+            it('should display error message', function () {
+                expect(scope.error).toEqual('An error occured while saving the sermon');
+            });
         });
     });
 });
