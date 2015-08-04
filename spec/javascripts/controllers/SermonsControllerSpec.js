@@ -40,6 +40,34 @@ describe('SermonsController', function () {
             expect(mockSermonService.create).toHaveBeenCalledWith(scope.data);
         });
 
+        describe('successful upload', function () {
+            beforeEach(function () {
+                $controller('SermonsController', {$scope: scope});
+            });
+
+            it('should add image url to sermon', function () {
+                $rootScope.$broadcast('s3upload:success', {}, {path: 'http://image-upload-path'});
+                scope.$digest();
+                expect(scope.data.image_url).toBeDefined();
+                expect(scope.data.image_url).toEqual('http://image-upload-path');
+            });
+
+            it('should add audio url to sermon', function () {
+                $rootScope.$broadcast('s3upload:success', {}, {path: 'http://audio-upload-path'});
+                scope.$digest();
+                expect(scope.data.audio_url).toBeDefined();
+                expect(scope.data.audio_url).toEqual('http://audio-upload-path');
+            });
+
+            it('should add both urls to sermon', function () {
+                $rootScope.$broadcast('s3upload:success', {}, {path: 'http://image-upload-path'});
+                $rootScope.$broadcast('s3upload:success', {}, {path: 'http://audio-upload-path'});
+                scope.$digest();
+                expect(scope.data.image_url).toEqual('http://image-upload-path');
+                expect(scope.data.audio_url).toEqual('http://audio-upload-path');
+            });
+        });
+
         describe('success', function () {
 
             beforeEach (function () {
