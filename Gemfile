@@ -16,6 +16,7 @@ gem 'angular-rails-templates'
 gem 'foreman'
 gem 'puma'
 gem 'execjs'
+gem 'angular_rails_csrf'
 
 group :production, :staging do
    gem "rails_12factor"
