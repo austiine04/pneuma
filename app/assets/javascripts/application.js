@@ -36,7 +36,7 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
                       },
                       {
                           name: 'show',
-                          url: ':id',
+                          url: '/:id',
                           templateUrl: 'partials/sermons/show.html'
                       }
                   ]

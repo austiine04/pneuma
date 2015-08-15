@@ -15,8 +15,7 @@ angular.module('controllers', [])
 
         $scope.save = function () {
             SermonsService.create($scope.data).then(function (sermonId) {
-                var sermonUrl = '/sermons/' + sermonId;
-                $state.go(sermonUrl);
+                $state.go('sermons.show', {id: sermonId});
                 $rootScope.$broadcast('rootscope:broadcast', 'Sermon has been successfully saved');
             }, function (error) {
                 $scope.error = error;

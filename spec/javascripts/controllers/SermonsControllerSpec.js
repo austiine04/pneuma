@@ -76,9 +76,9 @@ describe('SermonsController', function () {
                 scope.save();
             });
 
-            it('should redirect to sermon details page on success', function () {
+            it('should redirect to sermon details page', function () {
                 $rootScope.$digest();
-                expect(mockState.go).toHaveBeenCalledWith('/sermons/sermon-id');
+                expect(mockState.go).toHaveBeenCalledWith('sermons.show', {id: 'sermon-id'});
             });
 
             it('should display success message', function () {
