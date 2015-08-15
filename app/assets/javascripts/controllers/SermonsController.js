@@ -1,5 +1,6 @@
 angular.module('controllers', [])
-    .controller('SermonsController', ['$scope', '$state', '$rootScope', 'SermonsService', function ($scope, $state, $rootScope, SermonsService) {
+    .controller('SermonsController', ['$scope', '$state', '$rootScope', 'SermonsService',
+                                      function ($scope, $state, $rootScope, SermonsService) {
         $scope.data = {};
 
         $scope.$on('s3upload:success', function (event, xhr, data) {
