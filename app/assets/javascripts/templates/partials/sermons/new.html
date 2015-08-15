@@ -6,17 +6,17 @@
     <form>
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title of the sermon">
+            <input type="text" class="form-control" id="title" placeholder="Title of the sermon" ng-model="data.sermon.title">
         </div>
 
         <div class="form-group">
             <label for="preacher">Preacher</label>
-            <input type="text" class="form-control" id="preacher" placeholder="Preacher">
+            <input type="text" class="form-control" id="preacher" placeholder="Preacher" ng-model="data.sermon.preacher">
         </div>
 
         <div class="form-group">
             <label for="preacher">A brief write up(summary) of the sermon</label>
-            <textarea class="form-control" id="summary" placeholder="Write up of the sermon"></textarea>
+            <textarea class="form-control" id="summary" placeholder="Write up of the sermon" ng-model="data.sermon.summary"></textarea>
         </div>
 
         <div class="form-group">
