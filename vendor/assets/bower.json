@@ -6,6 +6,7 @@
     "angular-ui-router": "latest",
     "ng-s3upload": "latest",
     "angular-mocks": "latest",
-    "angular-resource": "latest"
+    "angular-resource": "latest",
+    "angular-ui-router.stateHelper": "latest"
   }
 }

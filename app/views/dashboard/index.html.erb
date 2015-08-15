@@ -1,1 +1,30 @@
-<div class='row' ui-view></div>
+<div class='row top-bar'>
+    <div class='col-md-1 user'>
+      <a href="/users/sign_out"> Logout </a>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-md-2 left-pane'>
+      <ul class='items'>
+         <li class='item'>
+           <div class='item-container'>
+             <a ui-sref="sermons.new">Sermons</a>
+           </div>
+         </li>
+         <li>
+           <div class='item-container'>
+             Devotionals
+           </div>
+         </li>
+         <li>
+           <div class='item-container'>
+             Events
+           </div>
+         </li>
+      </ul>
+    </div>
+
+    <div class='content col-md-8' ui-view>
+    </div>
+</div>
