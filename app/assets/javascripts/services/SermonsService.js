@@ -3,7 +3,7 @@ angular.module('services', [])
         return {
             create: function (sermon) {
                 var deferred = $q.defer();
-                var url = window.location + '/api/v1/sermons';
+                var url = window.location.origin + '/api/v1/sermons';
 
                 $http.post(url, sermon).success(function (data, status, headers, config) {
                     deferred.resolve(data.id);

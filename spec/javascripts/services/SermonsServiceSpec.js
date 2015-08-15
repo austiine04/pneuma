@@ -16,7 +16,7 @@ describe('SermonsService', function () {
         beforeEach(function () {
             sermon = {title: 'aaa-bbb-ccc', preacher: 'papa'};
             returnedSermon = angular.extend(sermon, {id: 'returned-sermon'});
-            url = window.location + '/api/v1/sermons';
+            url = window.location.origin + '/api/v1/sermons';
         });
 
         function resolvePromises () {
