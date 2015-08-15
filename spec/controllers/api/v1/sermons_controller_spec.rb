@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::SermonsController, type: :controller do
-
   describe 'create' do
-
     describe 'valid sermon' do
       before(:each) do
         login_user
@@ -41,6 +39,27 @@ describe Api::V1::SermonsController, type: :controller do
         expect(api_response[:title]).to eq ["can't be blank"]
         expect(api_response[:preacher]).to eq ["can't be blank"]
       end
+    end
+  end
+
+  describe 'get' do
+    before(:each) do
+      3.times do |count|
+        title = "title #{count}"
+        branding_image_url = "url #{count}"
+        audio_file_url = "url #{count}"
+
+        create :sermon, title: title, preacher: 'preacher', branding_image_url: branding_image_url, audio_file_url: audio_file_url
+      end
+
+      get :index, format: :json
+    end
+
+    it {should respond_with 200}
+
+    it 'should return all available sermons' do
+      api_response = JSON.parse response.body
+      expect(api_response.size).to be 3
     end
   end
 end

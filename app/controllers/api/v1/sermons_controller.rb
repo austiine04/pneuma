@@ -1,7 +1,11 @@
 module Api
   module V1
     class SermonsController < ApplicationController
-      before_action :authenticate_user!
+      before_action :authenticate_user!, only: [ :create ]
+
+      def index
+        render json: Sermon.all
+      end
 
       def create
         sermon = Sermon.new sermon_params
