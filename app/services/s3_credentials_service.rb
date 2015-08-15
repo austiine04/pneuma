@@ -10,7 +10,7 @@ class S3CredentialsService
         ['starts-with', '$key', ''],
         {acl: 'public-read'},
         ['starts-with', '$Content-Type', ''],
-        ['content-length-range', 0, 100 * 1024 * 1024]
+        ['content-length-range', 0, 1000 * 1024 * 1024]
       ]
     }
   end
