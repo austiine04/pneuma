@@ -13,6 +13,7 @@ var pneumaApp = angular.module('pneumaApp', [
     'ngSanitize',
     'ngS3upload',
     'controllers',
+    'list-sermons-controller',
     'directives',
     'services'
 ]);
@@ -23,6 +24,18 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
     ngS3Config.theme = 'bootstrap3';
 
     stateHelperProvider
+        .state({
+            name: 'home',
+            template: '<div ui-view></div>',
+            children: [
+                {
+                    name: 'list-sermons',
+                    url: '/',
+                    templateUrl: 'partials/sermons/index.html',
+                    controller: 'ListSermonsController'
+                }
+            ]
+        })
         .state({
                   name: 'sermons',
                   url: '/sermons',
@@ -40,5 +53,5 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
                           templateUrl: 'partials/sermons/show.html'
                       }
                   ]
-              })
+             })
 }]);
