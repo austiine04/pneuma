@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+#TODO tests to cover not logged in scenario
 describe Api::V1::SermonsController, type: :controller do
   describe 'create' do
     describe 'valid sermon' do

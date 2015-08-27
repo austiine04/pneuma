@@ -16,9 +16,10 @@
 @import "login";
 @import "variables";
 @import "dashboard";
+@import "home";
 
 body {
-    background-color: $background;
+    /*background-color: $background;*/
     color: $pnuema-font-grey-background;
 }
 

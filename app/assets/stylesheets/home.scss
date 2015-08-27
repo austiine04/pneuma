@@ -1,3 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables"; 
+
+.sermon-row {
+   margin-bottom: 10px;
+   background-color: #f5f5f5;
+   padding: 1%;
+ }
+
+.sermon {
+
+  .branding-image {
+    width: 10%;
+    float: left;
+    .image {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  .links {
+    float: right;
+    width: 10%;
+    border-left: 1px solid #dddddd;
+
+    li {
+      text-transform: uppercase;
+      display: block;
+      a {
+        color: #999999;
+        text-decoration: none
+      };
+    }
+  }
+
+}
