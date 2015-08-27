@@ -12,10 +12,10 @@ var pneumaApp = angular.module('pneumaApp', [
     'templates',
     'ngSanitize',
     'ngS3upload',
-    'controllers',
-    'list-sermons-controller',
-    'directives',
-    'services',
+    'createSermonController',
+    'listSermonsController',
+    'createSermonDirective',
+    'sermonService',
     'trustedUrl'
 ]);
 

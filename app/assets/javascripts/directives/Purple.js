@@ -1,4 +1,4 @@
-angular.module('directives', [])
+angular.module('createSermonDirective', [])
     .directive('purpleWidget', function () {
         return {
             restrict: 'A',

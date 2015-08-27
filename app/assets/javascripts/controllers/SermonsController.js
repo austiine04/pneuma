@@ -1,4 +1,4 @@
-angular.module('controllers', [])
+angular.module('createSermonController', [])
     .controller('SermonsController', ['$scope', '$state', '$rootScope', 'SermonsService',
                                       function ($scope, $state, $rootScope, SermonsService) {
         $scope.data = {

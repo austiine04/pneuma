@@ -1,4 +1,4 @@
-angular.module('services', [])
+angular.module('sermonService', [])
     .service('SermonsService', ['$http', '$q', function ($http, $q) {
         var deferred = $q.defer();
         var url = window.location.origin + '/api/v1/sermons';

@@ -1,4 +1,4 @@
-angular.module('list-sermons-controller', [])
+angular.module('listSermonsController', [])
   .controller('ListSermonsController', ['$scope', 'SermonsService', function ($scope, SermonsService) {
 
       var errorCallback = function (error) {
