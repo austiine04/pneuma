@@ -5,21 +5,16 @@
         </div>
 
         <div class='content'>
-            <h2>{{sermon.title}}</h2>
-            <div>Preacher: {{sermon.preacher}}</div>
-            <div>{{sermon.summary}}</div>
+            <div class='about-sermon'>
+                <h2>{{sermon.title}}</h2>
+                <h3>Preacher: {{sermon.preacher}}</h3>
+            </div>
+
+            <audio controls="controls" class='audio-player'>
+                <source ng-src="{{sermon.audio_file_url | trustedResourceUrl}}" type="audio/ogg">
+                <source ng-src="{{sermon.audio_file_url | trustedResourceUrl}}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
-
-        <audio controls="controls">
-            <source ng-src="{{sermon.audio_file_url | trustedResourceUrl}}" type="audio/ogg">
-            <source type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-
-        <ul class='links'>
-            <li><a href="{{sermon.audio_file_url}}">Download</a></li>
-            <li><a href="{{sermon.audio_file_url}}">Listen</a></li>
-            <li><a href="#">Notes</a></li>
-        </ul>
     </div>
 </div>
