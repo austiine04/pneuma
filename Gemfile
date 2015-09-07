@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 
 gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
@@ -9,22 +9,22 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
-gem 'pg'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bower-rails'
 gem 'angular-rails-templates'
-gem 'foreman'
-gem 'puma'
 gem 'execjs'
 gem 'angular_rails_csrf'
 
 group :production, :staging do
    gem "rails_12factor"
+   gem 'pg'
    gem "rails_stdout_logging"
    gem "rails_serve_static_assets"
 end
 
 group :development, :test do
+  gem 'foreman'
+  gem 'puma' 
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
