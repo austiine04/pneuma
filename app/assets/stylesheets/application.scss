@@ -13,6 +13,7 @@
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "flat-ui/dist/css/flat-ui";
 @import "login";
 @import "variables";
 @import "dashboard";
@@ -22,4 +23,3 @@ body {
     /*background-color: $background;*/
     color: $pnuema-font-grey-background;
 }
-
