@@ -24,6 +24,8 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
 
     ngS3Config.theme = 'bootstrap3';
 
+    $urlRouterProvider.otherwise('/');
+
     stateHelperProvider
         .state({
             name: 'home',
