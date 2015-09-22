@@ -23,4 +23,4 @@ vendor/assets/bower_components
 node_modules
 .#*
 examples.txt
-
+.DS_Store
