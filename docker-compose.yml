@@ -1,5 +1,7 @@
 db:
   image: postgres
+  ports:
+    - "5432"
 
 pneuma:
   build: .

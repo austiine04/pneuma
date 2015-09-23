@@ -21,3 +21,4 @@ production:
   pool: 5
   username: pnuema
   password: password1v
+  host: db
