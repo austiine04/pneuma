@@ -3,7 +3,7 @@ db:
   ports:
     - "5432"
 
-pneuma:
+web:
   build: .
   ports:
     - "80:80"

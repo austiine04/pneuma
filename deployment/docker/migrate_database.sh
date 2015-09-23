@@ -2,6 +2,6 @@
 
 set -xe
 
+#migrate the database
 cd /home/pneuma/webapp
-rake db:migrate
-rake db:seed
+rake db:setup

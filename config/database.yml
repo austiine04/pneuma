@@ -19,6 +19,6 @@ production:
   encoding: unicode
   database: pneuma
   pool: 5
-  username: pnuema
-  password: password1v
+  username: postgres
+  password:
   host: db
