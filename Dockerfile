@@ -8,7 +8,7 @@ WORKDIR /home/pneuma/scripts
 ADD deployment/docker/bootstrap.sh /home/pneuma/scripts/
 RUN /home/pneuma/scripts/bootstrap.sh
 
-ADD deployment/docker/migrate_database.sh /etc/my_init.d/migrate_database.sh
+ADD deployment/docker/bootstrap_app.sh /etc/my_init.d/bootstrap_app.sh
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
 
