@@ -20,10 +20,10 @@ echo "path-exclude /usr/share/info/*" >> /etc/dpkg/dpkg.cfg.d/01_nodoc
 #install updates
 apt-get update
 
-minimal_apt_get_install postgresql postgresql-contrib
+$minimal_apt_get_install postgresql postgresql-contrib
 
 #create pneuma user
-sudo -u postgres bash -c "psql -c \"CREATE USER pneuma WITH PASSWORD 'password';\""
+psql --command "CREATE USER pneuma WITH PASSWORD 'password';"
 
 #create the database
-sudo -u postgres bash -c "psql -c \"CREATE DATABASE pneuma WITH OWNER pneuma IF NOT EXISTS;\""
+psql --command "CREATE DATABASE pneuma WITH OWNER pneuma IF NOT EXISTS;"

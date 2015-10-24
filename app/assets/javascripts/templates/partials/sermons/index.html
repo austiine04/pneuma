@@ -1,20 +1,8 @@
-<div class='row sermon-row' ng-repeat="sermon in sermons">
-    <div class='sermon'>
-        <div class='branding-image'>
-            <img src="{{sermon.branding_image_url}}" class="image">
-        </div>
+<div class='tile col-xs-3 sermon' ng-repeat="sermon in sermons">
+  <!--img src="{{sermon.branding_image_url}}"-->
 
-        <div class='content'>
-            <div class='about-sermon'>
-                <h2>{{sermon.title}}</h2>
-                <h3>Preacher: {{sermon.preacher}}</h3>
-            </div>
-
-            <audio controls="controls" class='audio-player'>
-                <source ng-src="{{sermon.audio_file_url | trustedResourceUrl}}" type="audio/ogg">
-                <source ng-src="{{sermon.audio_file_url | trustedResourceUrl}}" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    </div>
+  <div class='about-sermon'>
+      <p>{{sermon.title}}</p>
+      <p>Preacher: {{sermon.preacher}}</p>
+  </div>
 </div>

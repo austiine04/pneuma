@@ -8,7 +8,6 @@ WORKDIR /home/pneuma/scripts
 ADD deployment/docker/bootstrap.sh /home/pneuma/scripts/
 RUN /home/pneuma/scripts/bootstrap.sh
 
-ADD deployment/docker/bootstrap_app.sh /etc/my_init.d/bootstrap_app.sh
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
 
@@ -45,6 +44,9 @@ RUN rake bower:install
 #load the vhost file
 ADD deployment/config_files/nginx/pneuma.conf /etc/nginx/sites-enabled/pneuma.conf
 RUN rm /etc/nginx/sites-enabled/default
+
+ADD deployment/docker/bootstrap_app.sh /home/pneuma/scripts/bootstrap_app.sh
+RUN /home/pneuma/webapp/bootstrap_app.sh
 
 #turn nginx on
 RUN rm -f /etc/service/nginx/down
