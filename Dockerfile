@@ -12,28 +12,10 @@ ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
 
 #copy codebase
-WORKDIR /home/pneuma/webapp
+ADD . /srv/pneuma
 
-ADD .ruby-version /home/pneuma/webapp/app/
-ADD .ruby-gemset /home/pneuma/webapp/app/
-ADD /app /home/pneuma/webapp/app/
-ADD /bin /home/pneuma/webapp/bin/
-ADD /config /home/pneuma/webapp/config/
-ADD /db /home/pneuma/webapp/db/
-ADD /lib /home/pneuma/webapp/lib/
-ADD /log /home/pneuma/webapp/log/
-ADD /public /home/pneuma/webapp/public/
-ADD /tmp /home/pneuma/webapp/tmp/
-ADD Bowerfile /home/pneuma/webapp/
-ADD config.ru /home/pneuma/webapp/
-ADD Gemfile /home/pneuma/webapp/
-ADD Gemfile.lock /home/pneuma/webapp/
-ADD Rakefile /home/pneuma/webapp/
-RUN mkdir -p vendor/assets
-RUN touch log/production.log && chmod 777 log/production.log
-
-ADD Gemfile /home/pneuma/webapp/
-ADD Gemfile.lock /home/pneuma/webapp/
+#bundle install
+WORKDIR /srv/pneuma
 RUN bundle install --without development test --jobs 4 --path vendor/ && \
     rm -Rf vendor/ruby/2.2.2/cache
 
@@ -45,10 +27,24 @@ RUN rake bower:install
 ADD deployment/config_files/nginx/pneuma.conf /etc/nginx/sites-enabled/pneuma.conf
 RUN rm /etc/nginx/sites-enabled/default
 
+#add secret to the environment
+RUN /bin/bash -c 'echo export SECRET_KEY_BASE=$(rake secret)'
+
 ADD deployment/docker/bootstrap_app.sh /home/pneuma/scripts/bootstrap_app.sh
-RUN /home/pneuma/webapp/bootstrap_app.sh
+RUN /home/pneuma/scripts/bootstrap_app.sh
 
 #turn nginx on
 RUN rm -f /etc/service/nginx/down
 
-#TODO: (Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml`)
+#stop both nginx and postgres and start them with supervisor
+RUN service postgresql stop
+RUN service nginx stop
+
+ADD deployment/config_files/supervisor/pneuma.conf /etc/supervisor/conf.d/pneuma.conf
+RUN service supervisor restart
+
+EXPOSE 80
+
+#TODO: 
+#(Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml`)
+#remove passwords

@@ -3,8 +3,11 @@
 set -xe
 
 #generate the secret key
-export SECRET_KEY_BASE=$(rake secret)
+SECRET_KEY_BASE=$(rake secret)
+touch .env
+echo "SECRET_KEY_BASE=$SECRET_KEY_BASE" >> .env
 
 #migrate the database
-cd /home/pneuma/webapp
-rake db:setup
+service postgresql start
+cd /srv/pneuma
+rake db:migrate
