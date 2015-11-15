@@ -39,6 +39,3 @@ if [ $db_exists -eq 0 ] ; then
     cmd="psql -U postgres -t -c \"$create_db_statement\""
     eval $cmd
 fi
-
-#install supervisor
-$minimal_apt_get_install supervisor

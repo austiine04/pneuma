@@ -27,24 +27,21 @@ RUN rake bower:install
 ADD deployment/config_files/nginx/pneuma.conf /etc/nginx/sites-enabled/pneuma.conf
 RUN rm /etc/nginx/sites-enabled/default
 
-#add secret to the environment
-RUN /bin/bash -c 'echo export SECRET_KEY_BASE=$(rake secret)'
-
 ADD deployment/docker/bootstrap_app.sh /home/pneuma/scripts/bootstrap_app.sh
 RUN /home/pneuma/scripts/bootstrap_app.sh
+
+#stop postgres so it can started with runit 
+RUN service postgresql stop
+
+#runit config for postgres
+ADD deployment/config_files/runit/postgresql/ /etc/service/postgresql/
+RUN chmod +x /etc/service/postgresql/run
 
 #turn nginx on
 RUN rm -f /etc/service/nginx/down
 
-#stop both nginx and postgres and start them with supervisor
-RUN service postgresql stop
-RUN service nginx stop
-
-ADD deployment/config_files/supervisor/pneuma.conf /etc/supervisor/conf.d/pneuma.conf
-RUN service supervisor restart
-
 EXPOSE 80
 
 #TODO: 
-#(Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml`)
+#postgres data directory should be a mounted volume
 #remove passwords
