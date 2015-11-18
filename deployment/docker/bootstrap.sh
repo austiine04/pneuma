@@ -21,8 +21,10 @@ apt-get update
 
 $minimal_apt_get_install postgresql postgresql-contrib
 
+# trust local connections to postgres
 cp /etc/postgresql/9.3/main/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf.bak
 sed 's/peer/trust/' /etc/postgresql/9.3/main/pg_hba.conf.bak > /etc/postgresql/9.3/main/pg_hba.conf
+rm /etc/postgresql/9.3/main/pg_hba.conf.bak
 
 /etc/init.d/postgresql start
 

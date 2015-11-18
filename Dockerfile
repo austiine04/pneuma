@@ -8,6 +8,14 @@ WORKDIR /home/pneuma/scripts
 ADD deployment/docker/bootstrap.sh /home/pneuma/scripts/
 RUN /home/pneuma/scripts/bootstrap.sh
 
+RUN mkdir /data
+ADD deployment/config_files/postgres/main/ /data/main/
+RUN chown -R postgres:postgres /data
+RUN chmod -R 0700 /data
+VOLUME /data
+ADD deployment/config_files/postgres/postgresql.conf /data/main/postgresql.conf
+ADD deployment/config_files/postgres/pg_hba.conf /data/main/pg_hba.conf
+
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
 
