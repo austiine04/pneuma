@@ -10,6 +10,6 @@ echo "SECRET_KEY_BASE=$SECRET_KEY_BASE" >> .env
 #migrate the database
 service postgresql start
 cd /srv/pneuma
-rake db:migrate
-
+RAILS_ENV=production rake db:migrate
+RAILS_ENV=production rake db:seed
 RAILS_ENV=production bundle exec rake assets:precompile

@@ -51,5 +51,5 @@ RUN rm -f /etc/service/nginx/down
 EXPOSE 80
 
 #TODO: 
-#postgres data directory should be a mounted volume
+#need to seperate out s3 buckets for different environments
 #remove passwords
