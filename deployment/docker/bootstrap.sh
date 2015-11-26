@@ -19,14 +19,14 @@ echo "path-exclude /usr/share/info/*" >> /etc/dpkg/dpkg.cfg.d/01_nodoc
 
 apt-get update
 
-$minimal_apt_get_install postgresql postgresql-contrib
+$minimal_apt_get_install postgresql-9.3 postgresql-contrib-9.3
 
 # trust local connections to postgres
 cp /etc/postgresql/9.3/main/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf.bak
 sed 's/peer/trust/' /etc/postgresql/9.3/main/pg_hba.conf.bak > /etc/postgresql/9.3/main/pg_hba.conf
 rm /etc/postgresql/9.3/main/pg_hba.conf.bak
 
-/etc/init.d/postgresql start
+service postgresql start
 
 #create pneuma user
 psql -U postgres --command "CREATE USER pneuma WITH PASSWORD 'password';"
@@ -41,3 +41,5 @@ if [ $db_exists -eq 0 ] ; then
     cmd="psql -U postgres -t -c \"$create_db_statement\""
     eval $cmd
 fi
+
+service postgresql stop

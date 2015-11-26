@@ -9,13 +9,7 @@ ADD deployment/docker/bootstrap.sh /home/pneuma/scripts/
 RUN /home/pneuma/scripts/bootstrap.sh
 
 #volume for postgres data
-RUN mkdir /data
-ADD deployment/config_files/postgres/main/ /data/main/
-RUN chown -R postgres:postgres /data
-RUN chmod -R 0700 /data
-ADD deployment/config_files/postgres/postgresql.conf /etc/postgresql/9.3/main/postgresql.conf
-ADD deployment/config_files/postgres/pg_hba.conf     /etc/postgresql/9.3/main/pg_hba.conf
-VOLUME /data
+VOLUME /var/lib/postgresql/
 
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
@@ -38,9 +32,6 @@ RUN rm /etc/nginx/sites-enabled/default
 
 ADD deployment/docker/bootstrap_app.sh /home/pneuma/scripts/bootstrap_app.sh
 RUN /home/pneuma/scripts/bootstrap_app.sh
-
-#stop postgres so it can started with runit 
-RUN service postgresql stop
 
 #runit config for postgres
 ADD deployment/config_files/runit/postgresql/ /etc/service/postgresql/
