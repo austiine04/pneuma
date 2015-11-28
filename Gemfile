@@ -12,7 +12,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
-gem 'dotenv-rails'
+gem 'dotenv-rails', :groups => [:development, :test, :production]
 
 group :production, :staging do
    gem "rails_12factor"
