@@ -6,7 +6,7 @@ class S3CredentialsService
     @policy = {
       expiration: 5.hours.from_now.utc.xmlschema,
       conditions: [
-        {bucket: 'pneuma'},
+        {bucket: ENV['S3_BUCKET_NAME']},
         ['starts-with', '$key', ''],
         {acl: 'public-read'},
         ['starts-with', '$Content-Type', ''],

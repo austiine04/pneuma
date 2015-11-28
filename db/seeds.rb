@@ -1,2 +1,2 @@
 # default user account
-User.create email: ENV['username'], password: ENV['password'], password_confirmation: ENV['password']
+User.create email: ENV['USERNAME'], password: ENV['PASSWORD'], password_confirmation: ENV['PASSWORD']
