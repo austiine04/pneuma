@@ -1,0 +1,41 @@
+---
+  - name: copy deploy key to server
+    copy: src=deploy_key dest=/home/ubuntu/.ssh/ owner=ubuntu group=ubuntu mode=0600
+
+  - name: install git
+    apt: name=git state=present update_cache=yes
+
+  - name: add apt repository for docker
+    apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present update_cache=yes
+
+  - name: install docker
+    apt: name=docker state=present
+    notify:
+      - start docker engine
+
+  - name: clone repo
+    git: repo=git@github.com:austiine04/pneuma.git
+         dest=/srv/checkout
+         key_file=/home/ubuntu/.ssh/deploy_key
+         accept_hostkey=True
+
+  - name: add .env file
+    template: src=env.j2 dest=/srv/checkout/.env owner=www-data mode=0700
+
+  - name: build docker image
+    docker_image: path=/srv/checkout name="pneuma/pneuma" state=build
+
+  - name: stop container if one currently exists
+    docker_image: name="pneuma" state=absent
+
+  - name: start the new shiny container
+    docker:
+      name: pneuma
+      image: pneuma/pneuma
+      state: started
+      expose:
+        - 80
+
+  handlers:
+    - name: start docker engine
+      service: name=docker state=started
