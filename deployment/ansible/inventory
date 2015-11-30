@@ -1,2 +1,2 @@
 [staging]
-52.34.56.183 ansible_ssh_private_key_file=~/.ssh/staging.pem ansible_ssh_user=ubuntu prod=false
+52.34.9.201 ansible_ssh_private_key_file=~/.ssh/staging.pem ansible_ssh_user=ubuntu prod=false
