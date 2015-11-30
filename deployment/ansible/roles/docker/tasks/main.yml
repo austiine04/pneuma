@@ -38,3 +38,7 @@
       name: pneuma
       image: pneuma/pneuma
       state: started
+      publish_all_ports: yes 
+
+  - name: clean up the checkout directory
+    shell: rm -rf /srv/checkout
