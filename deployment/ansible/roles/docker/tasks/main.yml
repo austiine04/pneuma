@@ -33,9 +33,3 @@
       name: pneuma
       image: pneuma/pneuma
       state: started
-      expose:
-        - 80
-
-  handlers:
-    - name: start docker engine
-      service: name=docker state=started
