@@ -2,11 +2,8 @@
   - name: copy deploy key to server
     copy: src=deploy_key dest=/home/ubuntu/.ssh/ owner=ubuntu group=ubuntu mode=0600
 
-  - name: add apt repository for docker
-    apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present update_cache=yes
-
   - name: install packages
-    apt: name={{ item }} state=present
+    apt: name={{ item }} state=present update_cache=yes
     with_items:
       - git
       - python-pip
