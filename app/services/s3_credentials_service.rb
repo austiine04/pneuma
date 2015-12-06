@@ -2,7 +2,7 @@ class S3CredentialsService
 
   def initialize
     @aws_key_id = ENV['AWS_KEY_ID']
-    @aws_secret_key = ENV['AWS_SECRET_KEY']
+    @aws_secret_key = ENV['AWS_KEY_SECRET']
     @policy = {
       expiration: 5.hours.from_now.utc.xmlschema,
       conditions: [

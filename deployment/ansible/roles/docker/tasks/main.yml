@@ -25,7 +25,7 @@
          accept_hostkey=True
 
   - name: add .env file
-    template: src=env.j2 dest=/srv/checkout/.env owner=www-data mode=0700
+    template: src=env.j2 dest=/srv/checkout/.env owner=www-data mode=0744
 
   - name: build docker image
     docker_image: path=/srv/checkout name="pneuma/pneuma" state=build
@@ -39,7 +39,7 @@
       image: pneuma/pneuma
       state: started
       ports:
-        "80:80"
+        - "80:80"
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
