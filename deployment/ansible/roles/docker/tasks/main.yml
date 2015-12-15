@@ -1,4 +1,10 @@
 ---
+  - name: set db vars in the environment
+    environment:
+      db_name: {{ vault_db_name }}
+      db_user: {{ vault_db_user_name }}
+      db_password: {{ vault_db_password }}
+
   - name: copy deploy key to server
     copy: src=deploy_key dest=/home/ubuntu/.ssh/ owner=ubuntu group=ubuntu mode=0600
 
@@ -33,6 +39,9 @@
   - name: stop container if one currently exists
     docker: name="pneuma" image="pneuma/pneuma" command="/sbin/my_init --" state=absent
 
+  - name: create a directory for postgres data
+    file: path=/data state=directory
+
   - name: start the new shiny container
     docker:
       name: pneuma
@@ -40,6 +49,8 @@
       state: started
       ports:
         - "80:80"
+      volumes:
+        - /data:/var/lib/postgres/9.3/main
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
