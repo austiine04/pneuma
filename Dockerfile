@@ -9,7 +9,7 @@ ADD deployment/docker/bootstrap.sh /home/pneuma/scripts/
 RUN /home/pneuma/scripts/bootstrap.sh
 
 #volume for postgres data
-#VOLUME /var/lib/postgresql/9.3/main
+VOLUME /var/lib/postgresql/9.3/main
 
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
