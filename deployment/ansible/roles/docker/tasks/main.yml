@@ -1,10 +1,4 @@
 ---
-  - name: set db vars in the environment
-    environment:
-      db_name: {{ vault_db_name }}
-      db_user: {{ vault_db_user_name }}
-      db_password: {{ vault_db_password }}
-
   - name: copy deploy key to server
     copy: src=deploy_key dest=/home/ubuntu/.ssh/ owner=ubuntu group=ubuntu mode=0600
 
