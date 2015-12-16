@@ -8,16 +8,14 @@ WORKDIR /home/pneuma/scripts
 ADD deployment/docker/bootstrap.sh /home/pneuma/scripts/
 RUN /home/pneuma/scripts/bootstrap.sh
 
-#volume for postgres data
-VOLUME /var/lib/postgresql/9.3/main
+VOLUME ["/var/lib/postgresql", "var/log/postgresql", "var/run/postgresql"]
 
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
+ADD deployment/docker/migrate.sh /etc/my_init/04_migrate.sh
 
-#copy codebase
 ADD . /srv/pneuma
 
-#bundle install
 WORKDIR /srv/pneuma
 RUN bundle install --without development test --jobs 4 --path vendor/ && \
     rm -Rf vendor/ruby/2.2.2/cache
@@ -35,10 +33,6 @@ RUN /bin/bash -c 'SECRET_KEY_BASE=$(rake secret) && echo "SECRET_KEY_BASE=$SECRE
 #runit config for postgres
 ADD deployment/config_files/runit/postgresql/ /etc/service/postgresql/
 RUN chmod +x /etc/service/postgresql/run
-
-RUN rake db:migrate
-RUN rake db:seed
-RUN rake assets:precompile
 
 #turn nginx on
 RUN rm -f /etc/service/nginx/down
