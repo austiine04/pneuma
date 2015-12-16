@@ -43,6 +43,10 @@
       state: started
       ports:
         - "80:80"
+      volumes:
+        - /data:/var/lib/postgresql
+        - /data:/var/run/postgresql
+        - /data:/var/log/postgresql
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
