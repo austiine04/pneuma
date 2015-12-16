@@ -28,7 +28,6 @@ RUN rake bower:install
 ADD deployment/config_files/nginx/pneuma.conf /etc/nginx/sites-enabled/pneuma.conf
 RUN rm /etc/nginx/sites-enabled/default
 
-RUN /bin/bash -c 'SECRET_KEY_BASE=$(rake secret) && echo "SECRET_KEY_BASE=$SECRET_KEY_BASE" >> .env'
 RUN rake assets:precompile
 
 #runit config for postgres
