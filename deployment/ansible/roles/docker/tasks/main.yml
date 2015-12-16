@@ -44,7 +44,9 @@
       ports:
         - "80:80"
       volumes:
-        - /data:/var/lib/postgres/9.3/main
+        - /data:/var/lib/postgresql
+        - /data:/var/log/postgresql
+        - /data:/var/run/postgresql
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
