@@ -12,7 +12,7 @@ VOLUME ["/var/lib/postgresql", "var/log/postgresql", "var/run/postgresql"]
 
 ENTRYPOINT ["/sbin/my_init"]
 CMD ["--"]
-ADD deployment/docker/migrate.sh /etc/my_init/04_migrate.sh
+ADD deployment/docker/migrate.sh /etc/my_init.d/04_migrate.sh
 
 ADD . /srv/pneuma
 
