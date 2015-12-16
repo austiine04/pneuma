@@ -34,7 +34,10 @@
     docker: name="pneuma" image="pneuma/pneuma" command="/sbin/my_init --" state=absent
 
   - name: create a directory for postgres data
-    file: path=/data state=directory
+    file: path=/{{ item.0 }}/{{ item.1 }} state=directory
+    with_nested:
+      - ['data', 'data', 'data']
+      - ['db', 'process', 'log']
 
   - name: start the new shiny container
     docker:
@@ -44,9 +47,9 @@
       ports:
         - "80:80"
       volumes:
-        - /data:/var/lib/postgresql
-        - /data:/var/run/postgresql
-        - /data:/var/log/postgresql
+        - /data/db:/var/lib/postgresql
+        - /data/process:/var/run/postgresql
+        - /data/log:/var/log/postgresql
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
