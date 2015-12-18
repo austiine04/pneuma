@@ -1,9 +1,11 @@
 angular.module('createSermonController', [])
-    .controller('SermonsController', ['$scope', '$state', '$rootScope', 'SermonsService',
-                                      function ($scope, $state, $rootScope, SermonsService) {
+    .controller('SermonsController', ['$scope', '$state', '$rootScope', 'SermonsService', 'ENV',
+                                      function ($scope, $state, $rootScope, SermonsService, ENV) {
         $scope.data = {
           sermon: {}
         };
+
+        $scope.bucket = ENV.bucketname;
 
         $scope.$on('s3upload:success', function (event, xhr, data) {
             if (data.path.match(/image/) !== null) {

@@ -16,7 +16,8 @@ var pneumaApp = angular.module('pneumaApp', [
     'listSermonsController',
     'createSermonDirective',
     'sermonService',
-    'trustedUrl'
+    'trustedUrl',
+    'config'
 ]);
 
 pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',

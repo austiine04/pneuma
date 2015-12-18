@@ -21,14 +21,14 @@
 
         <div class="form-group">
             <label for="image">Select a branding image for the sermon</label>
-            <div purple-widget s3-upload bucket="'pneuma'" ng-model="files.first"
+            <div purple-widget s3-upload bucket="{{ bucket }}" ng-model="files.first"
                  s3-upload-options="{submitOnChange: true, folder: 'images/'}" do-upload="performUpload">
             </div>
         </div>
 
         <div class="form-group">
             <label>Select audio file</label>
-            <div purple-widget s3-upload bucket="'pneuma'" ng-model="files.first"
+            <div purple-widget s3-upload bucket="{{ bucket }}" ng-model="files.first"
                  s3-upload-options="{submitOnChange: true, folder:'audio/'}" do-upload="performUpload">
             </div>
         </div>
