@@ -26,3 +26,4 @@ node_modules
 examples.txt
 .DS_Store
 deploy_key*
+config.js
