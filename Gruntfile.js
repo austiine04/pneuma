@@ -53,6 +53,12 @@ module.exports = function (grunt) {
       },
       seed: {
         command: 'rake db:seed'
+      },
+      bower: {
+        command: 'rake bower:install'
+      },
+      bundler: {
+        command: 'bundle install'
       }
     }
   });
@@ -62,9 +68,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-shell-spawn');
 
   //custom grunt tasks
-  grunt.registerTask('serve', 'start server ...', ['ngconstant:development', 'shell:migrations', 'shell:seed', 'shell:server']);
   grunt.registerTask('staging-config', '', ['ngconstant:staging']);
   grunt.registerTask('production-config', '', ['ngconstant:production']);
+  grunt.registerTask('serve', 'start server ...', ['shell:bundler', 'shell:bower', 'ngconstant:development', 'shell:migrations', 'shell:seed', 'shell:server']);
 
   //default task
   grunt.registerTask('default', ['serve']);
