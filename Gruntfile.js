@@ -63,6 +63,8 @@ module.exports = function (grunt) {
 
   //custom grunt tasks
   grunt.registerTask('serve', 'start server ...', ['ngconstant:development', 'shell:migrations', 'shell:seed', 'shell:server']);
+  grunt.registerTask('staging-config', '', ['ngconstant:staging']);
+  grunt.registerTask('production-config', '', ['ngconstant:production']);
 
   //default task
   grunt.registerTask('default', ['serve']);
