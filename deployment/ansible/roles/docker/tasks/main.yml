@@ -30,8 +30,14 @@
   - name: build docker image
     docker_image: path=/srv/checkout name="pneuma/pneuma" state=build
 
+  - name: postgres data directory
+    file: path=/{{ item.0 }}/{{ item.1 }} state=directory
+    with_nested:
+      - ['data', 'data']
+      - ['db', 'log']
+
   - name: stop container if one currently exists
-    docker: name="pneuma" image="pneuma/pneuma" command="/sbin/my_init --" state=absent
+    docker: name=pneuma image=pneuma/pneuma state=absent
 
   - name: start the new shiny container
     docker:
@@ -40,6 +46,9 @@
       state: started
       ports:
         - "80:80"
+      volumes:
+        - /data/db:/var/lib/postgresql
+        - /data/log:/var/log/postgresql
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
