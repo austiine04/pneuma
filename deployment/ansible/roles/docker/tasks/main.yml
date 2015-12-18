@@ -36,6 +36,7 @@
       - ['data', 'data']
       - ['db', 'log']
 
+  # not working need to tag the previous container, and then use the tag to remove it
   - name: stop container if one currently exists
     docker: name=pneuma image=pneuma/pneuma state=absent
 
