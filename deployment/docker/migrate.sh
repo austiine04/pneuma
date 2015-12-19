@@ -13,4 +13,4 @@ SECRET_KEY_BASE=$(rake secret)
 echo "SECRET_KEY_BASE=$SECRET_KEY_BASE" >> .env
 
 # set up front end vars depending on which are deploying to
-grunt ngconstant:$DEPLOYMENT_ENVIRONMENT
+grunt "ngconstant:$DEPLOYMENT_ENVIRONMENT"
