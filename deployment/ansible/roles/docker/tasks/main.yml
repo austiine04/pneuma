@@ -51,6 +51,8 @@
       volumes:
         - /data/db:/var/lib/postgresql
         - /data/log:/var/log/postgresql
+      env:
+        DEPLOYMENT_ENVIRONMENT: {{ deployment_env }}
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout

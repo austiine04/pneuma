@@ -17,7 +17,7 @@ ADD . /srv/pneuma
 WORKDIR /srv/pneuma
 RUN bundle install --without development test --jobs 4 --path vendor/ && \
     rm -Rf vendor/ruby/2.2.2/cache
-RUN npm install bower
+RUN npm install -g grunt-cli && npm install
 RUN echo '{ "allow_root": true }' > /root/.bowerrc
 RUN rake bower:install
 RUN rake assets:precompile

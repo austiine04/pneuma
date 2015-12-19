@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/austiine04/pneuma#readme",
   "devDependencies": {
+    "bower": "^1.7.1",
     "grunt": "^0.4.5",
     "grunt-ng-constant": "^1.1.0",
     "grunt-shell-spawn": "^0.3.10"
