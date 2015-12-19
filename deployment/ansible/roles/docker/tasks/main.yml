@@ -27,6 +27,9 @@
   - name: add .env file
     template: src=env.j2 dest=/srv/checkout/.env owner=www-data mode=0744
 
+    #  name: tag the current container
+    #  docker: name=pneuma image=pneuma/pneuma labels=previous
+
   - name: build docker image
     docker_image: path=/srv/checkout name="pneuma/pneuma" state=build
 
@@ -35,10 +38,6 @@
     with_nested:
       - ['data', 'data']
       - ['db', 'log']
-
-  # not working need to tag the previous container, and then use the tag to remove it
-  - name: stop container if one currently exists
-    docker: name=pneuma image=pneuma/pneuma state=absent
 
   - name: start the new shiny container
     docker:
@@ -52,7 +51,10 @@
         - /data/db:/var/lib/postgresql
         - /data/log:/var/log/postgresql
       env:
-        DEPLOYMENT_ENVIRONMENT: "{{ deployment_env }}"
+        DEPLOY_ENV: "{{ deployment_env }}"
+
+    #  name: remove the previous container
+    #  docker: labels=previous state=absent
 
   - name: clean up the checkout directory
     shell: rm -rf /srv/checkout
