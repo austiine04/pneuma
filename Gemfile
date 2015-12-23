@@ -17,13 +17,11 @@ gem 'dotenv-rails', :groups => [:development, :test, :production]
 group :production, :staging do
    gem "rails_12factor"
    gem 'pg'
-   gem "rails_stdout_logging"
-   gem "rails_serve_static_assets"
+   gem 'puma'
 end
 
 group :development, :test do
   gem 'foreman'
-  gem 'puma' 
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
