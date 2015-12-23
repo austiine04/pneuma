@@ -1,3 +1,0 @@
----
-  - name: start docker engine
-    service: name=docker state=started
