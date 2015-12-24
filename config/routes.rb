@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :sermons, only: [:create, :index]
+      resources :sermons, only: [:create, :index, :show]
     end
   end
 end
