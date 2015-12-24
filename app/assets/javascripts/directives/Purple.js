@@ -1,10 +1,10 @@
 angular.module('createSermonDirective', [])
-    .directive('purpleWidget', function () {
-        return {
-            restrict: 'A',
-            link: function (scope, element, attributes) {
-                var button = element.children()[0];
-                button.classList.remove('btn-primary');
-            }
-        };
-    });
+.directive('purpleWidget', function () {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attributes) {
+      var button = element.children()[0];
+      button.classList.remove('btn-primary');
+    }
+  };
+});
