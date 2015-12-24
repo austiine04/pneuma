@@ -21,41 +21,41 @@ var pneumaApp = angular.module('pneumaApp', [
 ]);
 
 pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
-                  function (stateHelperProvider, $urlRouterProvider, ngS3Config) {
+    function (stateHelperProvider, $urlRouterProvider, ngS3Config) {
 
-    ngS3Config.theme = 'bootstrap3';
+      ngS3Config.theme = 'bootstrap3';
 
-    $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/');
 
-    stateHelperProvider
+      stateHelperProvider
         .state({
-            name: 'home',
-            template: '<div ui-view></div>',
-            children: [
-                {
-                    name: 'list-sermons',
-                    url: '/',
-                    templateUrl: 'partials/sermons/index.html',
-                    controller: 'ListSermonsController'
-                }
-            ]
+          name: 'home',
+          template: '<div ui-view></div>',
+          children: [
+            {
+              name: 'list-sermons',
+              url: '/',
+              templateUrl: 'partials/sermons/index.html',
+              controller: 'ListSermonsController'
+            }
+          ]
         })
-        .state({
-                  name: 'sermons',
-                  url: '/sermons',
-                  template: '<div ui-view></div>',
-                  children: [
-                      {
-                          name: 'new',
-                          url: '/new',
-                          templateUrl: 'partials/sermons/new.html',
-                          controller: 'SermonsController'
-                      },
-                      {
-                          name: 'show',
-                          url: '/:id',
-                          templateUrl: 'partials/sermons/show.html'
-                      }
-                  ]
-             })
-}]);
+      .state({
+        name: 'sermons',
+        url: '/sermons',
+        template: '<div ui-view></div>',
+        children: [
+          {
+            name: 'new',
+            url: '/new',
+            templateUrl: 'partials/sermons/new.html',
+            controller: 'SermonsController'
+          },
+          {
+            name: 'show',
+            url: '/:id',
+            templateUrl: 'partials/sermons/show.html'
+          }
+        ]
+      })
+    }]);
