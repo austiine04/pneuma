@@ -3,15 +3,16 @@ module Api
     class SermonsController < ApplicationController
       before_action :authenticate_user!, only: [ :create ]
       rescue_from ActiveRecord::RecordNotFound, with: :sermon_not_found
+      rescue_from ActiveRecord::RecordInvalid, with: :invalid_sermon
 
       def index
         render json: Sermon.all
       end
 
       def create
-        sermon = Sermon.new sermon_params
-        render json: sermon, status: 201 if sermon.save
-        render json: sermon.errors.messages,  status: 422 if !sermon.save
+        @sermon = Sermon.new sermon_params
+        @sermon.save!
+        render json: @sermon, status: 201
       end
 
       def show
@@ -25,6 +26,10 @@ module Api
 
       def sermon_not_found
         render json: 'Sermon not found', status: 404
+      end
+
+      def invalid_sermon
+        render json: @sermon.errors.messages, status: 422
       end
     end
   end
