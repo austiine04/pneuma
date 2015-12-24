@@ -70,4 +70,27 @@ describe('SermonsService', function () {
           });
         });
     });
+
+    describe('get', function () {
+      var sermonUrl = url + '/1';
+      describe('success', function () {
+        it('should return the sermon', function () {
+          mockHttpBackend.expectGET(sermonUrl).respond(200, {title: 'title', preacher: 'preacher'});
+          SermonsService.get(1).then(function (sermon) {
+            expect(sermon.title).toEqual('title');
+            expect(sermon.preacher).toEqual('preacher');
+          });
+        });
+      });
+
+      describe('error', function () {
+        it('should return error message from server', function () {
+          var errorMessage = 'Internal Server error';
+          mockHttpBackend.expectGET(sermonUrl).respond(500, errorMessage);
+          SermonsService.get(1).then(function () {}, function (error) {
+           expect(error).toEqual(errorMessage);
+          });
+        });
+      });
+    });
 });

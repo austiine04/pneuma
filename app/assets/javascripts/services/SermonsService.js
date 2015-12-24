@@ -20,6 +20,16 @@ angular.module('sermonService', [])
                     deferred.reject(error);
                 });
                 return deferred.promise;
+            },
+
+            get: function (sermonId) {
+                var sermonUrl = url + '/' + sermonId;
+                $http.get(sermonUrl).success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (error, headers, status, config) {
+                    deferred.reject(error);
+                });
+                return deferred.promise;
             }
         };
     }]);
