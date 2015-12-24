@@ -8,6 +8,11 @@ FactoryGirl.define do
   end
 
   factory :sermon do
+    title 'title'
+    preacher 'preacher'
+    branding_image_url 'url'
+    audio_file_url 'url'
+
     initialize_with { new(attributes) }
   end
 end
