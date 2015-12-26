@@ -14,6 +14,7 @@ var pneumaApp = angular.module('pneumaApp', [
     'ngS3upload',
     'createSermonController',
     'listSermonsController',
+    'showSermonController',
     'createSermonDirective',
     'sermonService',
     'trustedUrl',
@@ -54,7 +55,8 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
           {
             name: 'show',
             url: '/:id',
-            templateUrl: 'partials/sermons/show.html'
+            templateUrl: 'partials/sermons/show.html',
+            controller: 'ShowSermonController'
           }
         ]
       })
