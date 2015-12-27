@@ -1,8 +1,8 @@
-<div class='login-form'>
-  <h2 class='login-form-header'>Log in</h2>
+<div class='signin-form'>
+  <h2 class='signin-form-header'>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class='login-wrap'>
+    <div class='signin-wrap'>
       <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
       <%= render "devise/shared/links" %><br />
