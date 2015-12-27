@@ -1,3 +1,5 @@
+@import "variables";
+
 .signin-form {
   max-width: 330px;
   margin: 100px auto 0;
@@ -9,7 +11,7 @@
    margin: 0;
    padding:20px 15px;
    text-align: center;
-   background: #41cac0;
+   background: $pneuma-purple;
    border-radius: 5px 5px 0 0;
    -webkit-border-radius: 5px 5px 0 0;
    color: #fff;
@@ -44,12 +46,11 @@
  }
 
  .btn-signin {
-   background: #f67a6e;
+   background: $pneuma-purple;
    color: #fff;
    text-transform: uppercase;
    font-weight: 300;
    font-family: 'Open Sans', sans-serif;
-   box-shadow: 0 4px #e56b60;
    margin-bottom: 20px;
  }
 
