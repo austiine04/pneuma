@@ -125,17 +125,6 @@ hr {
         }
       }
 
-      a.active {
-        background: #35404d;
-        color: $pneuma-purple;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        display: block;
-      }
-
       a:hover, a:focus {
         background: #35404d;
         color: $pneuma-purple;
