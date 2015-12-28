@@ -52,36 +52,98 @@ hr {
     border: 1px solid #B67BFF;
 }
 
-.header {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1002;
+#container {
 
-  .logo {
-    font-size: 21px;
-    color: #2e2e2e;
-    float: left;
-    margin-top: 15px;
-    text-transform: uppercase;
+  .header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+
+    .logo {
+      font-size: 21px;
+      color: #2e2e2e;
+      float: left;
+      margin-top: 15px;
+      text-transform: uppercase;
+    }
+
+    .logout {
+      font-size: 21px;
+      color: #2e2e2e;
+      margin-top: 15px;
+      text-transform: uppercase;
+      display: block;
+      float: right;
+    }
   }
 
-  .logout {
-    font-size: 21px;
-    color: #2e2e2e;
-    margin-top: 15px;
-    text-transform: uppercase;
-    display: block;
-    float: right;
+  #sidebar {
+    width: 210px;
+    height: 100%;
+    position: fixed;
+    background: #2a3542;
+    overflow: hidden;
+    outline: none;
   }
-}
 
-.header, .footer {
-  min-height: 60px;
-  padding: 0 15px;
-}
+  .spacing {
+    margin: -2px 0 0;
+    padding: 0;
+  }
 
-.white-bg {
-  background: #fff;
-  border-bottom: 1px solid #f1f2f7;
+  .sidebar-menu {
+    @extend .spacing;
+    margin-top: 75px;
+
+    li {
+      @extend .spacing;
+      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      a {
+        color: #aeb2b7;
+        text-decoration: none;
+        display: block;
+        padding: 15px 0 15px 10px;
+        font-size: 12px;
+        outline: none;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        i {
+          font-size: 15px;
+          padding-right: 6px;
+        }
+
+        span {
+          display: inline-block;
+        }
+      }
+
+      a.active {
+        color: $pneuma-purple;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        display: block;
+      }
+    }
+  }
+
+  .header, .footer {
+    min-height: 60px;
+    padding: 0 15px;
+  }
+
+  .white-bg {
+    background: #fff;
+    border-bottom: 1px solid #f1f2f7;
+  }
 }

@@ -3,33 +3,34 @@
     <a href='#' class='logo'>PNEUMA WORD MINISTRIES</a>
     <a href="/users/sign_out" class='logout'> Logout </a>
   </header>
-</section>
 
-<div class='row top-bar'>
-    
-</div>
-
-<div class='row'>
-    <div class='col-md-2 left-pane'>
-      <ul class='items'>
-         <li class='item'>
-           <div class='item-container'>
-             <a ui-sref="sermons.new">Sermons</a>
-           </div>
-         </li>
-         <li>
-           <div class='item-container'>
-             Devotionals
-           </div>
-         </li>
-         <li>
-           <div class='item-container'>
-             Events
-           </div>
-         </li>
+  <aside>
+    <div id='sidebar' class='nav-collapse' tabindex='5000'>
+      <ul class='sidebar-menu' id='accordion-navigation'>
+        <li>
+          <a class='active' ui-sref='sermons.new'>
+            <i class='fui-mic'></i>
+            <span>Sermons</span>
+          </a>
+        </li>
+        <li>
+          <a ui-sref='sermons.new'>
+            <i class='fui-mic'></i>
+            <span>Devotionals</span>
+          </a>
+        </li>
+        <li>
+          <a ui-sref='sermons.new'>
+            <i class='fui-mic'></i>
+            <span>Events</span>
+          </a>
+        </li>
       </ul>
     </div>
+  </aside>
+  <!--div class='content col-md-8' ui-view></div-->
+</section>
 
-    <div class='content col-md-8' ui-view>
-    </div>
-</div>
+
+
+    
