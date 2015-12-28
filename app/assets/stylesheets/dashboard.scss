@@ -62,7 +62,7 @@ hr {
 
     .logo {
       font-size: 21px;
-      color: #2e2e2e;
+      color: $pneuma-purple;
       float: left;
       margin-top: 15px;
       text-transform: uppercase;
@@ -125,7 +125,7 @@ hr {
         }
       }
 
-      a:hover, a:focus {
+      a.active, a:hover, a:focus {
         background: #35404d;
         color: $pneuma-purple;
         display: block;
