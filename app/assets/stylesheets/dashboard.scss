@@ -44,10 +44,11 @@ header {
   .button {
     display: inline-block;
     text-decoration: none;
-    background-color: $pneuma-purple;
+    background-color: #fff;
     padding: 0.5em 1em;
     border-radius: 3px;
-    color: #7D7D7D;
+    color: #b67bff;
+    border: 1px solid;
   }
 }
 
