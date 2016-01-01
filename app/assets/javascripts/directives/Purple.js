@@ -3,8 +3,8 @@ angular.module('createSermonDirective', [])
   return {
     restrict: 'A',
     link: function (scope, element, attributes) {
-      var button = element.children()[0];
-      button.classList.remove('btn-primary');
+      element.children()[0].remove();
+      element.children()[1].style.display = '';
     }
   };
 });
