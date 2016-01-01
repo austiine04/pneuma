@@ -1,40 +1,13 @@
 @import "variables";
 
-$font-color: #ffffff;
-
 .user {
-    float: right;
-}
-
-.top-bar {
-    @include background-color($pneuma-purple);
-    padding: 10px;
-    color: $font-color;
-    a {
-        text-decoration: none;
-        color: $font-color; 
-    }
-}
-
-.left-pane {
-    @include background-color($pneuma-purple);
-    color: $font-color;
-    ul{
-        list-style-type: none;
-        .item-container {
-            padding: 10px;
-            border-bottom: 1px solid #cdbfe3;
-        }
-    }
-    a {
-        text-decoration: none;
-        color: $font-color;
-    }
+  float: right;
 }
 
 .content {
-  float: left;
-  margin-left: 30px;
+  margin-top: 80px;
+  margin-left: 240px;
+  background-color: #fff;
 }
 
 button {
@@ -49,7 +22,33 @@ button {
 }
 
 hr {
-    border: 1px solid #B67BFF;
+  border: 1px solid #B67BFF;
+  clear: both;
+}
+
+header {
+
+  span {
+    display: inline-block;
+  }
+
+  #heading {
+    float: left;
+  }
+
+  #add-sermon {
+    margin-top: 1.3%;
+    float: right;
+  }
+
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: $pneuma-purple;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    color: #7D7D7D;
+  }
 }
 
 #container {

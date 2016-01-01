@@ -46,18 +46,24 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config',
         url: '/sermons',
         template: '<div ui-view></div>',
         children: [
-          {
-            name: 'new',
-            url: '/new',
-            templateUrl: 'partials/sermons/new.html',
-            controller: 'SermonsController'
-          },
-          {
-            name: 'show',
-            url: '/:id',
-            templateUrl: 'partials/sermons/show.html',
-            controller: 'ShowSermonController'
-          }
+        {
+          name: 'index',
+          url: '/',
+          templateUrl: 'partials/sermons/index.html',
+          controller: 'ListSermonsController'
+        },
+        {
+          name: 'new',
+          url: '/new',
+          templateUrl: 'partials/sermons/new.html',
+          controller: 'SermonsController'
+        },
+        {
+          name: 'show',
+          url: '/:id',
+          templateUrl: 'partials/sermons/show.html',
+          controller: 'ShowSermonController'
+        }
         ]
       })
     }]);

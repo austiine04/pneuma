@@ -1,8 +1,27 @@
-<div class='tile col-xs-3 sermon' ng-repeat="sermon in sermons">
-  <!--img src="{{sermon.branding_image_url}}"-->
+<header>
+  <span id='heading'>
+    <h5>List of sermons</h5>
+  </span>
 
-  <div class='about-sermon'>
-      <p>{{sermon.title}}</p>
-      <p>Preacher: {{sermon.preacher}}</p>
-  </div>
-</div>
+  <span id='add-sermon'>
+    <a class='button' href='#'>Add new sermon</a>
+  </span>
+</header>
+
+<hr />
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Sermon</th>
+      <th>Preacher</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="sermon in sermons">
+      <td>{{ sermon.title }}</td>
+      <td>{{ sermon.preacher }}</td>
+      <td>{{ sermon.date }}</td>
+    </tr>
+  </tbody>
+</table>
