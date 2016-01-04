@@ -20,7 +20,8 @@ var pneumaApp = angular.module('pneumaApp', [
     'config'
 ]);
 
-pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config', '$provide', function (stateHelperProvider, $urlRouterProvider, ngS3Config, $provide) {
+pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config', '$provide', 
+    function (stateHelperProvider, $urlRouterProvider, ngS3Config, $provide) {
       ngS3Config.theme = 'bootstrap3';
       $urlRouterProvider.otherwise('/');
 

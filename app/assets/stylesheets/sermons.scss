@@ -1,3 +1,5 @@
+@import "variables";
+
 .sermon-form {
   margin-top: 0%;
   padding: 1% 2%;
@@ -13,5 +15,9 @@
 
   .vertical-spacing {
     margin-top: 2%;
+  }
+
+  .purple {
+    background: $pneuma-purple
   }
 }
