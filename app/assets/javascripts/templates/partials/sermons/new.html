@@ -1,27 +1,40 @@
 <div class='sermon-form'>
-  <h5>Upload a new sermon</h5>
-  <hr/>
 
   <form>
-    <input type="text" class="form-control" id="title" placeholder="Title of the sermon" ng-model="data.sermon.title">
-    <br />
-    <input type="text" class="form-control" id="preacher" placeholder="Preacher" ng-model="data.sermon.preacher">
-    <br />
-    <textarea class="form-control" id="summary" placeholder="Write up of the sermon" ng-model="data.sermon.summary"></textarea>
-    <div class="form-group">
-      <label for="image">Select a branding image for the sermon</label>
-      <div purple-widget s3-upload bucket="'{{ bucket }}'" ng-model="files.first"
-           s3-upload-options="{submitOnChange: true, folder: 'images/'}" do-upload="performUpload">
+    <fieldset>
+      <legend> Some details about the sermon </legend>
+      <div class='form-group'>
+        <input type="text" class="form-control" id="title" placeholder="Title of the sermon" ng-model="data.sermon.title">
       </div>
-    </div>
 
-    <div class="form-group">
-      <label>Select audio file</label>
-      <div purple-widget s3-upload bucket="'{{ bucket }}'" ng-model="files.first"
-           s3-upload-options="{submitOnChange: true, folder:'audio/'}" do-upload="performUpload">
+      <div class='form-group'>
+        <input type="text" class="form-control" id="preacher" placeholder="Preacher" ng-model="data.sermon.preacher">
       </div>
-    </div>
 
-    <button type="submit" class="btn btn-block" ng-click="save()">Submit</button>
+      <div class='form-group'>
+        <textarea class="form-control" id="summary" placeholder="Write up of the sermon" ng-model="data.sermon.summary"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend> Upload files </legend>
+      <div class="form-group">
+        <label for="image">Branding image for the sermon (Optional)</label>
+        <div purple-widget s3-upload bucket="'{{ bucket }}'" ng-model="files.first"
+                                                             s3-upload-options="{submitOnChange: true, folder: 'images/'}" do-upload="performUpload">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Select audio file</label>
+        <div purple-widget s3-upload bucket="'{{ bucket }}'" ng-model="files.first"
+                                                             s3-upload-options="{submitOnChange: true, folder:'audio/'}" do-upload="performUpload">
+        </div>
+      </div>
+    </fieldset>
+
+    <div class='form-group vertical-spacing'>
+      <button type="submit" class="btn btn-block" ng-click="save()">Submit</button>
+    </div>
   </form>
 </div>
