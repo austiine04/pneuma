@@ -1,5 +1,15 @@
-<div id='sermon'>
-  <p> Title: {{ sermon.title }} </p>
-  <p> Preacher: {{ sermon.preacher }} </p>
-  <p> Summary: {{ sermon.summary }} </p>
+<div class='sermon'>
+  <div class='audio-and-image col-sm-6'>
+    <img src={{sermon.branding_image_url}} alt='Branding image for the sermon'/>
+    <div class='audio-player' ng-include="'partials/sermons/audio-player.html'"></div>
+  </div>
+
+  <div class='details'>
+    <p> Title: {{ sermon.title }} </p>
+    <p> Preacher: {{ sermon.preacher }} </p>
+    <p> Summary: {{ sermon.summary }} </p>
+    <hr />
+    <p> Month theme: Holy Spirit </p>
+    <p> Tags: Holy Spirit, Annointing, Baptism of the Holy Spirit</p>
+  </div>
 </div>

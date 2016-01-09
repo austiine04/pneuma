@@ -21,3 +21,23 @@
     background: $pneuma-purple
   }
 }
+
+.sermon {
+  margin-top: 15px;
+
+  .audio-and-image {
+    float: left;
+    img {
+      display: block;
+      width: 416px;
+    }
+  }
+
+  .audio-player {
+    margin-top: 10px;
+  }
+
+  .details {
+    float: right;
+  }
+}
