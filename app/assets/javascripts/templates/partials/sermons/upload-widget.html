@@ -4,8 +4,6 @@
     <span ng-if="filename">Replace file</span>
   </button>
 
-  <a ng-href="{{ filename  }}" target="_blank" class="" ng-if="filename" > Stored file </a>
-
   <div class="progress col-md-10 align-progress-bar" style="padding-left: 0px; padding-right: 0px">
     <div class="purple progress-bar progress-bar-striped" ng-class="{active: uploading}"
       role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress  }}%" ng-class="barClass()">
