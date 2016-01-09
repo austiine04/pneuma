@@ -27,14 +27,15 @@
 
   .audio-and-image {
     float: left;
+
     img {
       display: block;
       width: 416px;
     }
-  }
 
-  .audio-player {
-    margin-top: 10px;
+    .audio-player {
+      margin-top: 10px;
+    }
   }
 
   .details {
