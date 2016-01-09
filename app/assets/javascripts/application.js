@@ -20,7 +20,7 @@ var pneumaApp = angular.module('pneumaApp', [
     'config'
 ]);
 
-pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config', '$provide', 
+pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config', '$provide',
     function (stateHelperProvider, $urlRouterProvider, ngS3Config, $provide) {
       ngS3Config.theme = 'bootstrap3';
       $urlRouterProvider.otherwise('/');
@@ -64,8 +64,8 @@ pneumaApp.config(['stateHelperProvider', '$urlRouterProvider', 'ngS3Config', '$p
         ]
       })
 
-      $provide.decorator('s3UploadDirective', function ($delegate) {
+      $provide.decorator('s3UploadDirective', ['$delegate', function ($delegate) {
         $delegate[0].templateUrl = 'partials/sermons/upload-widget.html';
         return $delegate;
-      });
+      }]);
     }]);
