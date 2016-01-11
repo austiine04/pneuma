@@ -5,11 +5,16 @@
   </div>
 
   <div class='details col-sm-6'>
-    <p> Title: {{ sermon.title }} </p>
-    <p> Preacher: {{ sermon.preacher }} </p>
-    <p> Summary: {{ sermon.summary }} </p>
-    <hr />
-    <p> Month theme: Holy Spirit </p>
-    <p> Tags: Holy Spirit, Annointing, Baptism of the Holy Spirit</p>
+    <h4> {{ sermon.title }} </h4>
+    <p> {{ sermon.summary }} </p>
+
+    <div class='top-border'>
+      Month theme: <span> Holy Spirit </span> <br/>
+      Tags: <span>Holy Spirit</span>, <span>Annointing</span>, <span>Baptism of the Holy Spirit</span>
+    </div>
+
+    <div class='top-border'>
+      <p> Preacher: {{ sermon.preacher }} </p>
+    </div>
   </div>
 </div>

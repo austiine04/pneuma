@@ -40,5 +40,24 @@
 
   .details {
     float: right;
+
+    h4 {
+      font-size: 16px;
+      color: $pneuma-purple;
+    }
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+    }
+
+    span {
+      color: $pneuma-purple;
+    }
+
+    .top-border {
+      border-top: 2px solid $background;
+      padding: 10px;
+    }
   }
 }
