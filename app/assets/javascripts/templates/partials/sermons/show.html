@@ -8,6 +8,7 @@
     <h4> {{ sermon.title }} </h4>
     <p> {{ sermon.summary }} </p>
 
+    <!-- this stuff should all be toggled off coz its a work in progress-->
     <div class='top-border'>
       Month theme: <span> Holy Spirit </span> <br/>
       Tags: <span>Holy Spirit</span>, <span>Annointing</span>, <span>Baptism of the Holy Spirit</span>
@@ -16,5 +17,11 @@
     <div class='top-border'>
       <p> Preacher: {{ sermon.preacher }} </p>
     </div>
+
+    <div class='actions top-border'>
+      <a href='#' class='btn btn-danger'><i class='fa fa-trash-o'></i>Delete</a>
+      <a href='#' class='btn btn-primary'><i class='fa fa-pencil'></i>Edit</a>
+    </div>
+    <!-- end of toggle -->
   </div>
 </div>
