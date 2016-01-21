@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         command: 'rails server'
       },
       migrations: {
-        command: 'bin/rake db:migrate'
+        command: 'bin/rake db:migrate RAILS_ENV=test'
       },
       seed: {
         command: 'bundle exec rake db:seed'
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         command: 'rspec'
       },
       jasmine: {
-        command: 'bundle exec rake teaspoon'
+        command: 'bundle exec rake teaspoon RAILS_ENV=test'
       }
     }
   });
