@@ -49,13 +49,13 @@ module.exports = function (grunt) {
         command: 'rails server'
       },
       migrations: {
-        command: 'rake db:migrate'
+        command: 'bin/rake db:migrate'
       },
       seed: {
-        command: 'rake db:seed'
+        command: 'bundle exec rake db:seed'
       },
       bower: {
-        command: 'rake bower:install'
+        command: 'bundle exec rake bower:install'
       },
       bundler: {
         command: 'bundle install'
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         command: 'rspec'
       },
       jasmine: {
-        command: 'rake teaspoon'
+        command: 'bunle exec rake teaspoon'
       }
     }
   });
