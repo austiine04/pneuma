@@ -59,6 +59,12 @@ module.exports = function (grunt) {
       },
       bundler: {
         command: 'bundle install'
+      },
+      rspec: {
+        command: 'rspec'
+      },
+      jasmine: {
+        command: 'rake teaspoon'
       }
     }
   });
