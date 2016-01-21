@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         command: 'rspec'
       },
       jasmine: {
-        command: 'bunle exec rake teaspoon'
+        command: 'bundle exec rake teaspoon'
       }
     }
   });
