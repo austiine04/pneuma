@@ -23,7 +23,6 @@ describe('ListSermonsController', function () {
 
       it('should call SermonsService all to get sermons', function () {
         expect(mockSermonsService.all).toHaveBeenCalled();
-        expect(0).toEqual(1);
       });
 
       it('should add sermons to the scope', function () {
