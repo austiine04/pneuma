@@ -4,6 +4,7 @@
 //= require angular-rails-templates
 //= require angular-sanitize/angular-sanitize
 //= require ng-s3upload/build/ng-s3upload
+//= require new-relic
 //= require_tree .
 
 var pneumaApp = angular.module('pneumaApp', [
