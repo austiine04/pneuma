@@ -12,7 +12,7 @@ function rspec_tests {
 function jasmine_tests {
   echo "running javascript unit tests"
   npm install
-  bundle exec rake teaspoon RAILS_ENV=test
+  RAILS_ENV=test bundle exec teaspoon
 }
 
 function main {
