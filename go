@@ -11,7 +11,7 @@ function rspec_tests {
 
 function jasmine_tests {
   echo "running javascript unit tests"
-  bin/rake bower:install
+  npm install
   bundle exec rake teaspoon RAILS_ENV=test
 }
 
