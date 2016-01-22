@@ -5,7 +5,7 @@ function rspec_tests {
   echo "running rspec tests"
   bundle install
   bin/rake db:migrate RAILS_ENV=test
-  bin/rake db:seed
+  bin/rake db:seed RAILS_ENV=test
   rspec
 }
 
