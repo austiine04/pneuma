@@ -3,16 +3,16 @@
 
 function rspec_tests {
   echo "running rspec tests"
-  grunt shell:bundler
-  grunt shell:migrations
-  grunt shell:seed
-  grunt shell:rspec
+  bundle install
+  bin/rake db:migrate RAILS_ENV=test
+  bin/rake db:seed
+  rspec
 }
 
 function jasmine_tests {
   echo "running javascript unit tests"
-  grunt shell:bower
-  grunt shell:jasmine
+  bin/rake bower:install
+  bin/rake teaspoon RAILS_ENV=test
 }
 
 function main {
