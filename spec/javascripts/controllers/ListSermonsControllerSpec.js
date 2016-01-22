@@ -29,7 +29,6 @@ describe('ListSermonsController', function () {
         $rootScope.$digest();
         expect(scope.sermons).toBeDefined();
         expect(scope.sermons.length).toEqual(2);
-        expect(scope.sermons.length).toEqual(1);
       });
     });
 
