@@ -14,6 +14,7 @@ describe Api::V1::SermonsController, type: :controller do
 
       it 'should create a sermon in the database' do
         expect(Sermon.count).to eq 1
+        expect(Sermon.count).to eq 0
       end
 
       it 'should return sermon json' do
